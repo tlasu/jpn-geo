@@ -6,6 +6,9 @@ dist/
 wheels/
 *.egg-info
 
-mli_data/N03/*
+mlitdata/N03/*
+
+parquet/flateau
+parquet/N03/N03-20240101.parquet
 # Virtual environments
 .venv
