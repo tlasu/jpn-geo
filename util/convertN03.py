@@ -4,9 +4,9 @@ from pathlib import Path
 filename = "N03-20240101"
 
 if __name__ == "__main__":
-    if not Path("./mlitdata/N03_GML/N03-20240101.shp").exists():
+    if not Path("../mlitdata/N03_GML/N03-20240101.shp").exists():
         print("N03-20240101.shp not found 国土数値情報からダウンロードしてください")
-    gdf = gpd.read_file(f"./mlitdata/{filename}_GML/{filename}.shp")
+    gdf = gpd.read_file(f"../mlitdata/{filename}_GML/{filename}.shp")
     try:
         assert "N03_001" in gdf.columns
         assert gdf.N03_001.nunique() == 47
@@ -17,7 +17,7 @@ if __name__ == "__main__":
         print(gdf.N03_001.nunique())
         exit(1)
     print("check passed")
-    export_dir_name = "parquet/N03"
+    export_dir_name = "../parquet/N03"
     export_dir = Path(export_dir_name)
     export_dir.mkdir(parents=True, exist_ok=True)
     gdf.to_parquet(export_dir / f"{filename}.parquet")
